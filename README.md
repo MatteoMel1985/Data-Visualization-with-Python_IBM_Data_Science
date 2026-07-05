@@ -70,209 +70,133 @@ This notebook introduces interactive visualisation with Plotly. It covers Plotly
 
 This practice assignment applies the visualisation workflow to Australian wildfire data. It investigates estimated fire area, estimated fire brightness, regional fire activity, vegetation fire pixels, fire radiative power, confidence levels, and regional locations. The notebook uses pandas plots, Matplotlib, Seaborn, pie charts, histograms, scatter plots, stacked distributions, and Folium maps.
 
-<h1 align="center"><i>Technical Methodologies and Mathematical Foundations</i></h1>
+<h1 align="center"><i>Technical Methodologies</i></h1>
 
-## 1. Data Preparation for Visual Analytics
+## 1. Data Preparation for Visualisation
 
-The notebooks begin by loading structured datasets into pandas DataFrames and preparing them for analysis. This includes inspecting column names, selecting relevant variables, filtering records, grouping categories, and creating new aggregated tables.
+The notebooks begin by preparing datasets for visual analysis with pandas. This includes loading CSV files, inspecting columns and data types, filtering rows, grouping data, aggregating values, and reshaping tables where necessary. These steps are essential because effective visualisation depends on clean, well-structured data.
 
-From a mathematical perspective, a dataset can be represented as a matrix:
+Several notebooks use operations such as `groupby()`, `sum()`, `mean()`, `value_counts()`, and `reset_index()` to transform raw datasets into chart-ready summaries. These techniques make it possible to compare categories, analyse trends over time, and prepare data for dashboards and maps.
 
-$$
-X = \begin{bmatrix}
-x_{11} & x_{12} & \dots & x_{1p} \\
-x_{21} & x_{22} & \dots & x_{2p} \\
-\vdots & \vdots & \ddots & \vdots \\
-x_{n1} & x_{n2} & \dots & x_{np}
-\end{bmatrix}
-$$
+## 2. Line Plots
 
-where each row represents an observation and each column represents a feature. Visualisation transforms selected columns of this matrix into graphical encodings such as position, length, area, colour, and size.
+Line plots are used to visualise trends over time or ordered sequences. In the notebooks, they are especially useful for analysing changes in automobile sales across years, monthly sales patterns, and long-term fluctuations during recession and non-recession periods.
 
-## 2. Grouping and Aggregation
+Line charts are effective when the main objective is to show movement, direction, increase, decrease, or seasonality across a continuous timeline.
 
-Many notebooks use `groupby()` operations to summarise data by year, region, vehicle type, recession period, month, or continent. Aggregation reduces many individual observations into interpretable summary values.
+## 3. Area Plots
 
-For example, the mean of a variable is calculated as:
+Area plots extend line charts by filling the space beneath the plotted lines. They are used to emphasise the magnitude of change over time and to compare cumulative trends across multiple categories.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i
-$$
+In the visualisation labs, area plots help show how values evolve across years while giving the chart a stronger visual sense of volume and contribution.
 
-while the total value for a group is calculated as:
+## 4. Histograms
 
-$$
-S = \sum_{i=1}^{n}x_i
-$$
+Histograms are used to examine the distribution of numerical variables. They divide values into intervals, or bins, and show how frequently observations fall into each interval.
 
-These operations are essential for creating line charts, bar charts, pie charts, and dashboard metrics that compare meaningful categories instead of raw individual records.
+The notebooks use histograms to understand the spread of data, identify common ranges, and detect possible skewness or unusual patterns in numerical variables.
 
-## 3. Time-Series Visualisation with Line Charts
+## 5. Bar Charts
 
-Line charts are used throughout the repository to analyse changes over time, such as automobile sales by year, GDP during recession and non-recession periods, immigration trends, monthly vehicle sales, and wildfire activity across years and months.
+Bar charts are used to compare values across categories. In these notebooks, they are applied to compare vehicle types, sales values, unemployment-related effects, and other grouped categories.
 
-A time series can be represented as an ordered sequence:
+Bar charts are particularly useful when the goal is to rank categories, compare totals or averages, and make differences between groups immediately visible.
 
-$$
-\{(t_1, y_1), (t_2, y_2), \dots, (t_n, y_n)\}
-$$
+## 6. Pie Charts
 
-where $t$ is time and $y$ is the measured value. The line chart connects these ordered observations to reveal trends, peaks, declines, seasonality, and structural changes.
+Pie charts are used to show part-to-whole relationships. In the final dashboard, pie charts are used to represent the share of advertising expenditure by vehicle type.
 
-## 4. Bar Charts and Categorical Comparison
+This type of chart is most useful when the number of categories is limited and the purpose is to communicate proportional contribution rather than precise numerical comparison.
 
-Bar charts are used to compare numerical values across discrete categories, such as vehicle types, recession status, regions, destination states, or countries. The height or length of each bar is proportional to a value such as average sales, total flights, total immigrants, or mean fire brightness.
+## 7. Box Plots
 
-If a category $c_j$ contains observations $x_1, x_2, \dots, x_n$, its plotted value may be a count, total, or average:
+Box plots are used to summarise the distribution of numerical data across different categories. They show the median, quartiles, spread, and possible outliers.
 
-$$
-\text{bar height}(c_j) = \frac{1}{n_j}\sum_{i=1}^{n_j}x_i
-$$
+In the notebooks, box plots help compare distributions between groups and reveal whether specific categories have higher or lower values, wider variation, or unusual observations.
 
-This makes bar charts useful for comparing groups and identifying categories with unusually high or low values.
+## 8. Scatter Plots
 
-## 5. Histograms and Frequency Distributions
+Scatter plots are used to explore relationships between two numerical variables. Each point represents an observation, making it possible to identify patterns, clusters, trends, and possible outliers.
 
-Histograms are used to study the distribution of numerical variables, such as immigration counts or mean estimated fire brightness. A histogram divides the range of a variable into bins and counts how many observations fall into each interval.
+The notebooks use scatter plots to analyse whether two variables appear to move together and whether a visual relationship may exist between them.
 
-For a bin $B_j = [a_j, b_j)$, the frequency is:
+## 9. Bubble Plots
 
-$$
-f_j = \#\{x_i : a_j \leq x_i < b_j\}
-$$
+Bubble plots extend scatter plots by adding a third variable through the size of each point. This allows the chart to represent more information without changing the basic two-axis structure.
 
-Histograms help reveal skewness, concentration, dispersion, and multimodal patterns in a dataset.
+They are useful when the analysis requires comparing two numerical variables while also showing the relative magnitude of another measure.
 
-## 6. Pie Charts and Part-to-Whole Analysis
+## 10. Waffle Charts
 
-Pie charts are used to represent proportions, such as advertising expenditure by period, advertising expenditure by vehicle type, or immigration grouped by continent. Each slice represents a share of a total:
+Waffle charts are used to represent proportions in a grid-based format. They provide an alternative to pie charts by showing part-to-whole relationships through small, countable blocks.
 
-$$
-p_i = \frac{x_i}{\sum_{j=1}^{k}x_j}
-$$
+In the notebooks, waffle charts are used to make proportional comparisons more visually engaging and easier to interpret at a glance.
 
-where $p_i$ is the proportion of category $i$. This method is most useful when the goal is to understand composition rather than precise ranking.
+## 11. Word Clouds
 
-## 7. Box Plots and Distributional Summary
+Word clouds are used to visualise the frequency of words in a text dataset. Words that appear more often are displayed with greater visual prominence.
 
-Box plots summarise the distribution of a numerical variable through quartiles, medians, and outliers. The box usually spans from the first quartile $Q_1$ to the third quartile $Q_3$, while the line inside the box represents the median.
+The notebooks use word clouds as a text visualisation technique, helping to identify dominant terms and themes within unstructured textual data.
 
-The interquartile range is:
+## 12. Regression Plots
 
-$$
-IQR = Q_3 - Q_1
-$$
+Regression plots combine scatter plots with a fitted trend line. They are used to visualise the general relationship between two numerical variables and to show whether the relationship appears positive, negative, or weak.
 
-Values beyond the usual whisker boundaries may be treated as potential outliers:
+In the visualisation workflow, regression plots help connect exploratory visual analysis with predictive thinking by showing how one variable may explain changes in another.
 
-$$
-x < Q_1 - 1.5(IQR) \quad \text{or} \quad x > Q_3 + 1.5(IQR)
-$$
+## 13. Plotly Interactive Visualisations
 
-This makes box plots useful for comparing distributions between groups, such as immigration patterns across countries or decades.
+The Plotly notebook introduces interactive visualisation techniques. Plotly charts allow users to hover over data points, zoom into sections, pan across the chart, and explore values dynamically.
 
-## 8. Scatter Plots, Correlation, and Relationship Analysis
+This makes Plotly especially useful for dashboards and analytical reports where users need more flexibility than static charts can provide.
 
-Scatter plots are used to examine the relationship between two numerical variables, such as consumer confidence and automobile sales, vehicle price and sales, or fire confidence and radiative power. Each point represents one observation:
+## 14. Dash Dashboard Development
 
-$$
-(x_i, y_i)
-$$
+The final assignment uses Dash to build an interactive web dashboard for automobile sales analysis. The dashboard includes dropdown menus, user input controls, callback functions, and dynamically updated charts.
 
-The strength and direction of a linear relationship can be measured using the Pearson correlation coefficient:
+The Dash application allows users to switch between yearly statistics and recession-period statistics. Depending on the selected option, the dashboard displays different combinations of line charts, bar charts, and pie charts.
 
-$$
-r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i - \bar{y})^2}}
-$$
+## 15. Dashboard Callbacks and Interactivity
 
-A positive value indicates that both variables tend to increase together, while a negative value indicates that one variable tends to decrease as the other increases.
+Dash callbacks are used to connect user interface components with visual outputs. In the dashboard, callbacks control whether the year selector is enabled or disabled and determine which charts are displayed based on the selected report type.
 
-## 9. Bubble Plots and Multi-Dimensional Encoding
+This introduces an important dashboard design principle: visualisations should respond to user choices and display only the information relevant to the selected analytical context.
 
-Bubble plots extend scatter plots by using the size of each marker to represent a third numerical variable. If $s_i$ is the bubble size, it can be scaled from a variable $z_i$:
+## 16. Geospatial Visualisation with Folium
 
-$$
-s_i = k \cdot z_i
-$$
+The geospatial notebooks introduce map-based visualisation with Folium. Folium is used to create interactive maps, add markers, display geographical points, and visualise spatial patterns.
 
-where $k$ is a scaling factor. This allows a single chart to encode horizontal position, vertical position, and magnitude at the same time.
+These techniques are useful when the dataset contains location-based information and the analysis requires understanding where events, values, or observations are geographically concentrated.
 
-## 10. Waffle Charts and Proportional Grids
+## 17. Choropleth Maps
 
-Waffle charts represent proportions by dividing a rectangle into a grid of equally sized cells. If the chart contains $N$ total cells and a category has proportion $p_i$, the number of cells assigned to that category is approximately:
+Choropleth maps are used to colour geographical regions according to a numerical value. In the notebooks, this technique is applied to visualise differences across areas, such as regional totals or state-level values.
 
-$$
-n_i = \text{round}(p_i \cdot N)
-$$
+Choropleth maps are especially effective when the goal is to compare geographical regions and identify spatial patterns at a broader level.
 
-This provides a visually intuitive way to compare contributions to a total, such as immigration shares between countries.
+## 18. Marker Maps and Spatial Points
 
-## 11. Word Clouds and Text Frequency
+Marker maps display individual locations as points on a map. They are useful for showing exact positions, highlighting specific observations, and allowing users to interact with location-based data.
 
-Word clouds visualise the frequency of words in a text corpus. After tokenising and cleaning the text, each word is counted:
+The notebooks demonstrate how map markers can make geospatial datasets more intuitive by connecting data records directly to their real-world locations.
 
-$$
-f(w) = \text{number of occurrences of word } w
-$$
+## 19. Matplotlib-Based Static Visualisation
 
-Words with higher frequencies appear larger in the final visual. Although word clouds are less precise than bar charts, they are useful for quick qualitative summaries of dominant terms.
+Many notebooks use Matplotlib as the foundation for static visualisation. Matplotlib provides detailed control over chart structure, including figure size, titles, axis labels, legends, colours, and layout.
 
-## 12. Regression Plots and Trend Lines
+It is used throughout the repository to create line plots, bar charts, histograms, pie charts, scatter plots, and other core visualisations.
 
-Regression plots combine scatter points with a fitted line. In the notebooks, Seaborn regression plots are used to visualise long-term trends and relationships between variables.
+## 20. pandas Built-In Plotting
 
-The simplest regression model has the form:
+Some visualisations are created directly from pandas DataFrames. pandas plotting provides a convenient way to generate charts from tabular data without needing extensive chart configuration.
 
-$$
-\hat{y} = b_0 + b_1x
-$$
+This approach is useful for quick exploratory analysis, especially when the data has already been grouped, filtered, or aggregated.
 
-where $\hat{y}$ is the predicted value, $b_0$ is the intercept, and $b_1$ is the slope. The fitted line is usually estimated by minimising the residual sum of squares:
+## 21. Visual Storytelling and Analytical Communication
 
-$$
-RSS = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2
-$$
+Across the notebooks, visualisation is used not only to display data but also to communicate insights. Each chart type serves a specific purpose: line charts show trends, bar charts compare categories, pie charts show proportions, box plots reveal distributions, scatter plots explore relationships, and maps display geographical patterns.
 
-Regression plots are useful because they show both the individual observations and the general direction of the relationship.
-
-## 13. Geospatial Visualisation with Folium
-
-Folium is used to create interactive maps based on latitude and longitude coordinates. A geographical point can be represented as:
-
-$$
-(\phi, \lambda)
-$$
-
-where $\phi$ is latitude and $\lambda$ is longitude. The notebooks use Folium maps, markers, feature groups, marker clusters, circle markers, and choropleth maps to display spatial information.
-
-In a choropleth map, a numerical variable is mapped to colour intensity across geographical regions. This helps reveal spatial concentration and variation.
-
-## 14. Interactive Visualisation with Plotly
-
-Plotly is used to create interactive charts such as scatter plots, line plots, bar charts, histograms, bubble plots, pie charts, and sunburst charts. Unlike static charts, Plotly visualisations allow users to hover, zoom, pan, and inspect data dynamically.
-
-A Plotly chart maps DataFrame columns to visual properties such as:
-
-```python
-x → horizontal position
-y → vertical position
-color → category or magnitude
-size → third numerical variable
-```
-
-This makes Plotly especially useful for exploratory analysis, where interaction helps the user inspect patterns more deeply.
-
-## 15. Dashboarding with Dash
-
-The final Python script uses Dash to build an interactive dashboard. Dash applications are structured around layouts and callbacks. The layout defines the visible user interface, while callbacks define how outputs change when inputs change.
-
-Mathematically, a callback can be understood as a function:
-
-$$
-\text{Output} = f(\text{Input}_1, \text{Input}_2, \dots, \text{Input}_n)
-$$
-
-In this project, dropdown selections determine whether the dashboard displays yearly statistics or recession-period statistics. The selected input dynamically updates the charts shown in the output container.
+Together, these methods demonstrate how Python visualisation tools can transform raw datasets into clear analytical narratives, helping users understand patterns, compare groups, and communicate findings effectively.
 
 <h1 align="center"><i>Skills Demonstrated</i></h1>
 
