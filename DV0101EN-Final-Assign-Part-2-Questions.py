@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import dash
 from dash import dcc
 from dash import html
@@ -19,7 +16,6 @@ app = dash.Dash(__name__)
 # Set the title of the dashboard
 app.title = "Automobile Sales Statistics Dashboard"
 
-# ---------------------------------------------------------------------------------
 # Create the dropdown menu options
 dropdown_options = [
     {'label': 'Yearly Statistics', 'value': 'Yearly Statistics'},
@@ -29,7 +25,6 @@ dropdown_options = [
 # List of years
 year_list = [i for i in range(1980, 2024, 1)]
 
-# ---------------------------------------------------------------------------------
 # Create the layout of the app
 app.layout = html.Div([
 
@@ -89,7 +84,6 @@ app.layout = html.Div([
     ])
 ])
 
-# ---------------------------------------------------------------------------------
 # TASK 2.4: Creating Callbacks
 
 # Define the callback function to update the input container based on the selected statistics
