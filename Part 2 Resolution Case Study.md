@@ -869,11 +869,9 @@ Select `Recession Period Statistics` from the first dropdown. Confirm that:
 * the charts are arranged in two rows and two columns;  
 * the chart titles and axis labels are readable.  
 
-Then save the screenshot as:  
+Then save the screenshot as `RecessionReportgraphs.png`.
 
-```text
-RecessionReportgraphs.png
-```
+![RecessionReportgraphs.png](Screenshots/RecessionReportgraphs.png)
 
 <h2>Test 2: Yearly Statistics</h2>  
 
@@ -885,11 +883,9 @@ Select `Yearly Statistics` from the first dropdown. Confirm that:
 * the charts are arranged in two rows and two columns;  
 * the selected year appears in the title of the vehicle-type bar chart.  
 
-Then save the screenshot as:  
+Then save the screenshot as `YearlyReportgraphs.png`. 
 
-```text
-YearlyReportgraphs.png
-```
+![YearlyReportgraphs.png](Screenshots/YearlyReportgraphs.png)
 
 <h1 align="center">Exercise 12: Final checklist</h1>  
 
