@@ -6,24 +6,6 @@ This repository contains a structured collection of Jupyter Notebooks and a Dash
 
 The main focus of the repository is the analysis of automobile sales during recession and non-recession periods. The final assignment is divided into two main artefacts: a visual analysis notebook created with Matplotlib, Seaborn, and Folium, and an interactive dashboard application built with Dash and Plotly.
 
-<h1 align="center"><i>Repository Structure</i></h1>
-
-```text
-.
-├── DV0101EN-Final-Assign-Part1.ipynb
-├── DV0101EN-Final-Assign-Part-2-Questions.py
-└── Jupyter Notebooks/
-    ├── 4.3_Plotly_Basics.ipynb
-    ├── DV0101EN-Exercise-Area-Plots-Histograms-and-Bar-Charts_.ipynb
-    ├── DV0101EN-Exercise-Creating-maps-visualizing-geospat.ipynb
-    ├── DV0101EN-Exercise-Dataset-Preprocessing-Exploring-with-Pandas.ipynb
-    ├── DV0101EN-Exercise-Introduction-to-Matplotlib-and-Line-Plots_.ipynb
-    ├── DV0101EN-Exercise-Pie-Charts-Box-Plots-Scatter-Plots-and-Bubble-Plots.ipynb
-    ├── DV0101EN-Exercise-Plotting-directly-with-Matplotlib.jupyterlite.ipynb
-    ├── DV0101EN-Exercise-Waffle-Charts-Word-Clouds-and-Regression-Plots.ipynb
-    └── Practice_Assignment_Part1.ipynb
-```
-
 <h1 align="center"><i>Notebooks Overview</i></h1>
 
 * [**Final Assignment Part 1 – Automobile Sales Visual Analysis**](DV0101EN-Final-Assign-Part1.ipynb)
