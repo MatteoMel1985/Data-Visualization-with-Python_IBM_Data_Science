@@ -640,7 +640,6 @@ app.layout = html.Div([
 ])
 
 # TASK 2.4: Creating Callbacks
-
 # Define the callback function to update the input container based on the selected statistics
 @app.callback(
     Output(component_id='select-year', component_property='disabled'),
